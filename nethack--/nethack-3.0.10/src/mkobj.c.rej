@@ -1,0 +1,34 @@
+*** ../nh/src/mkobj.c	Thu May 31 21:34:46 1990
+--- src/mkobj.c	Tue Oct 13 22:34:18 1992
+***************
+*** 156,161 ****
+  		case CHEST:             n = 5; break;
+  		case LARGE_BOX:         n = 3; break;
+  		case SACK:
+  		case BAG_OF_HOLDING:    n = 1; break;
+  		default:                n = 0; break;
+  	}
+--- 156,162 ----
+  		case CHEST:             n = 5; break;
+  		case LARGE_BOX:         n = 3; break;
+  		case SACK:
++ 		case UGLY_BACKPACK:
+  		case BAG_OF_HOLDING:    n = 1; break;
+  		default:                n = 0; break;
+  	}
+***************
+*** 303,308 ****
+  					otmp->otrapped = !(rn2(10));
+  		case ICE_BOX:
+  		case SACK:
+  		case BAG_OF_HOLDING:    mkbox_cnts(otmp);
+  					break;
+  		case MAGIC_MARKER:      otmp->spe = rn1(70,30);
+--- 304,310 ----
+  					otmp->otrapped = !(rn2(10));
+  		case ICE_BOX:
+  		case SACK:
++ 		case UGLY_BACKPACK:
+  		case BAG_OF_HOLDING:    mkbox_cnts(otmp);
+  					break;
+  		case MAGIC_MARKER:      otmp->spe = rn1(70,30);

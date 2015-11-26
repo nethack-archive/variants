@@ -1,0 +1,24 @@
+*** ../nh/src/mkroom.c	Tue Jun  5 10:17:54 1990
+--- src/mkroom.c	Thu Oct 29 21:47:42 1992
+***************
+*** 75,80 ****
+  #if defined(ALTARS) && defined(THEOLOGY)
+  	case TEMPLE:    mktemple(); break;
+  #endif
+  	default:        impossible("Tried to make a room of type %d.", roomtype);
+      }
+  }
+--- 82,94 ----
+  #if defined(ALTARS) && defined(THEOLOGY)
+  	case TEMPLE:    mktemple(); break;
+  #endif
++ 	case WASPHIVE:    mkzoo(WASPHIVE); break;
++ 	case GIANTCOURT:  mkzoo(GIANTCOURT); break;
++ 	case LEPRECOURT:  mkzoo(LEPRECOURT); break;
++ 	case BADFOODSHOP: mkzoo(BADFOODSHOP); break;
++ 	case REALZOO:     mkzoo(REALZOO); break;
++ 	case ROOMELEVEN:  mkzoo(ROOMELEVEN); break;
++ 	case ANTHILL:     mkzoo(ANTHILL); break;
+  	default:        impossible("Tried to make a room of type %d.", roomtype);
+      }
+  }

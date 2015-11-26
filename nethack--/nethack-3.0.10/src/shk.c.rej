@@ -1,0 +1,18 @@
+*** ../nh/src/shk.c	Wed Feb  6 00:00:54 1991
+--- src/shk.c	Mon Oct 26 14:14:30 1992
+***************
+*** 1384,1389 ****
+  	register int scnt = (cnt / 3) + 1;      /* at least one sarge */
+  	register int lcnt = (cnt / 6);          /* maybe a lieutenant */
+  	register int kcnt = (cnt / 9);          /* and maybe a kaptain */
+  
+  	while(cnt--) {
+  	    if (enexto(mm, mm->x, mm->y, &mons[PM_KEYSTONE_KOP]))
+--- 1406,1412 ----
+  	register int scnt = (cnt / 3) + 1;      /* at least one sarge */
+  	register int lcnt = (cnt / 6);          /* maybe a lieutenant */
+  	register int kcnt = (cnt / 9);          /* and maybe a kaptain */
++ 	register int kmsn = (cnt / 12);         /* and possibly a Kommissioner */
+  
+  	while(cnt--) {
+  	    if (enexto(mm, mm->x, mm->y, &mons[PM_KEYSTONE_KOP]))

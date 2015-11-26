@@ -1,0 +1,624 @@
+*** ../nh/src/monst.c	Tue Jun 26 21:20:28 1990
+--- src/monst.c	Fri Dec  4 00:44:26 1992
+***************
+*** 107,112 ****
+  	  { { AT_STNG, AD_DRST, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  1, 10, 0, MS_BUZZ, MZ_TINY, M1_ANIMAL | M1_FLY | M1_NOHANDS |
+  	  M1_POIS | M1_POIS_RES, M2_HOSTILE | M2_PRINCE, C(HI_LORD) },
+  /*      blobs   */
+  	{ "acid blob", S_BLOB, 1, 3, 8, 0, 0, (G_GENO | 2),
+  	  { { AT_NONE, AD_ACID, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 115,146 ----
+  	  { { AT_STNG, AD_DRST, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  1, 10, 0, MS_BUZZ, MZ_TINY, M1_ANIMAL | M1_FLY | M1_NOHANDS |
+  	  M1_POIS | M1_POIS_RES, M2_HOSTILE | M2_PRINCE, C(HI_LORD) },
++ 	{ "queen ant", S_ANT, 11, 18, 3, 0, 0, (G_GENO | G_NOGEN),
++ 	  { { AT_BITE, AD_PHYS, 2, 4 }, { AT_STNG, AD_DRST, 3, 4 },
++ 	  NO_ATTK, NO_ATTK, NO_ATTK }, 2, 20, 0, MS_SILENT, MZ_TINY,
++ 	  M1_ANIMAL | M1_NOHANDS | M1_POIS | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_CARNIVORE | M2_EGGS | M2_PRINCE, C(HI_LORD) },
++ 	{ "yellow jacket", S_ANT, 3, 18, -1, 0, 0, (G_GENO | G_LGROUP | 1),
++ 	  { { AT_STNG, AD_DRST, 1, 3 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  1, 10, 0, MS_BUZZ, MZ_LARGE, M1_ANIMAL | M1_FLY | M1_NOHANDS |
++ 	  M1_POIS | M1_POIS_RES, M2_HOSTILE, C(YELLOW) },
++ 	{ "killer beetle", S_ANT, 6, 6, 4, 0, 0, (G_GENO | 1),
++ 	  { { AT_BITE, AD_PHYS, 3, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  1, 10, 0, MS_SILENT, MZ_LARGE, M1_ANIMAL | M1_NOHANDS | M1_POIS |
++ 	  M1_POIS_RES, M2_HOSTILE | M2_CARNIVORE, C(ORANGE_COLORED) },
++ 	{ "giant wasp", S_ANT, 6, 18, -1, 0, 0, (G_GENO | G_LGROUP | 1),
++ 	  { { AT_STNG, AD_DRST, 1, 3 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  1, 10, 0, MS_BUZZ, MZ_LARGE, M1_ANIMAL | M1_FLY | M1_NOHANDS |
++ 	  M1_POIS | M1_POIS_RES, M2_HOSTILE, C(YELLOW) },
++ 	{ "black wasp", S_ANT, 9, 18, -1, 0, 0, (G_GENO | G_LGROUP | 2),
++ 	  { { AT_STNG, AD_DRST, 1, 3 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  1, 10, 0, MS_BUZZ, MZ_LARGE, M1_ANIMAL | M1_FLY | M1_NOHANDS |
++ 	  M1_POIS | M1_POIS_RES, M2_HOSTILE, C(BLACK) },
++ 	{ "the King Bee", S_ANT, 13, 18, -1, 0, 0, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_STNG, AD_DRST, 1, 12 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  1, 10, 0, MS_BUZZ, MZ_LARGE, M1_ANIMAL | M1_FLY | M1_NOHANDS |
++ 	  M1_NOPOLY | M1_POIS | M1_POIS_RES, M2_STALK | M2_PNAME | M2_HOSTILE | 
++ 	  M2_PRINCE, C(HI_LORD) },
+  /*      blobs   */
+  	{ "acid blob", S_BLOB, 1, 3, 8, 0, 0, (G_GENO | 2),
+  	  { { AT_NONE, AD_ACID, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 139,144 ****
+  	  30, 300, 0, MS_SILENT, MZ_LARGE,
+  	  M1_NOEYES | M1_NOLIMBS | M1_FIRE_RES | M1_COLD_RES | M1_ELEC_RES |
+  	  M1_SLEE_RES, M2_WANDER | M2_HOSTILE | M2_OMNIVORE, C(CYAN) },
+  /*      cockatrice      */
+  	{ "cockatrice", S_COCKATRICE, 5, 6, 6, 30, 0, (G_GENO | 5),
+  	  { { AT_BITE, AD_PHYS, 1, 3 }, { AT_TUCH, AD_STON, 0, 0 },
+--- 188,208 ----
+  	  30, 300, 0, MS_SILENT, MZ_LARGE,
+  	  M1_NOEYES | M1_NOLIMBS | M1_FIRE_RES | M1_COLD_RES | M1_ELEC_RES |
+  	  M1_SLEE_RES, M2_WANDER | M2_HOSTILE | M2_OMNIVORE, C(CYAN) },
++ 	{ "poisonous blob", S_BLOB, 5, 6, 8, 0, 0, (G_GENO | 1),
++ 	  { { AT_TUCH, AD_DRST, 1, 12 }, {AT_SPIT, AD_DRST, 1, 4}, 
++ 	  NO_ATTK, NO_ATTK, NO_ATTK }, 20, 200, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_POIS_RES | M1_POIS,
++ 	  M2_WANDER | M2_HOSTILE, C(HI_LORD) },
++ 	{ "gigantic blob", S_BLOB, 10, 1, 8, 0, 0, (G_GENO | 2),
++ 	  { { AT_ENGL, AD_DCAY, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  20, 200, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_POIS_RES,
++ 	  M2_WANDER | M2_HOSTILE, C(WHITE) },
++ 	{ "The Blob", S_BLOB, 16, 1, 8, 0, 0, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_ENGL, AD_DCAY, 1, 12 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  20, 200, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_POIS_RES,
++ 	  M2_STALK | M2_PNAME | M2_HOSTILE, C(HI_LORD) },
+  /*      cockatrice      */
+  	{ "cockatrice", S_COCKATRICE, 5, 6, 6, 30, 0, (G_GENO | 5),
+  	  { { AT_BITE, AD_PHYS, 1, 3 }, { AT_TUCH, AD_STON, 0, 0 },
+***************
+*** 146,151 ****
+  	  3, 30, 0, MS_HISS, MZ_SMALL,
+  	  M1_ANIMAL | M1_NOHANDS | M1_POIS_RES | M1_STON_RES,
+  	  M2_HOSTILE | M2_EGGS, C(YELLOW) },
+  /*      dog     */
+  	{ "little dog", S_DOG, 2, 18, 6, 0, 0, (G_GENO | 1),
+  	  { { AT_BITE, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 210,221 ----
+  	  3, 30, 0, MS_HISS, MZ_SMALL,
+  	  M1_ANIMAL | M1_NOHANDS | M1_POIS_RES | M1_STON_RES,
+  	  M2_HOSTILE | M2_EGGS, C(YELLOW) },
++ 	{ "chickatrice", S_COCKATRICE, 2, 3, 3, 15, 0, (G_GENO | G_SGROUP | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 3 }, { AT_TUCH, AD_STON, 0, 0 },
++ 	    { AT_NONE, AD_STON, 0, 0 }, NO_ATTK, NO_ATTK },
++ 	  3, 30, 0, MS_HISS, MZ_SMALL,
++ 	  M1_ANIMAL | M1_NOHANDS | M1_POIS_RES | M1_STON_RES,
++ 	  M2_HOSTILE | M2_EGGS, C(BROWN) },
+  /*      dog     */
+  	{ "little dog", S_DOG, 2, 18, 6, 0, 0, (G_GENO | 1),
+  	  { { AT_BITE, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 301,306 ****
+  	    { AT_BITE, AD_PHYS, 1, 4 }, { AT_CLAW, AD_CURS, 0, 0 }, NO_ATTK },
+  	  10, 30, 0, MS_LAUGH, MZ_SMALL,
+  	  M1_SWIM | M1_HUMANOID | M1_POIS, M2_STALK, C(GREEN) },
+  /*      humanoids       */
+  #ifdef TOLKIEN
+  	{ "hobbit", S_HUMANOID, 1, 9, 7, 0, 6, (G_GENO | 2),
+--- 428,438 ----
+  	    { AT_BITE, AD_PHYS, 1, 4 }, { AT_CLAW, AD_CURS, 0, 0 }, NO_ATTK },
+  	  10, 30, 0, MS_LAUGH, MZ_SMALL,
+  	  M1_SWIM | M1_HUMANOID | M1_POIS, M2_STALK, C(GREEN) },
++ 	{ "gremlin leader", S_GREMLIN, 8, 12, 2, 25, -9, (G_GENO | 2),
++ 	  { { AT_CLAW, AD_PHYS, 1, 8 }, { AT_CLAW, AD_PHYS, 1, 8 },
++ 	    { AT_BITE, AD_PHYS, 1, 6 }, { AT_CLAW, AD_CURS, 0, 0 }, NO_ATTK },
++ 	  10, 30, 0, MS_LAUGH, MZ_SMALL,
++ 	  M1_SWIM | M1_HUMANOID | M1_POIS, M2_STALK, C(HI_LORD) },
+  /*      humanoids       */
+  #ifdef TOLKIEN
+  	{ "hobbit", S_HUMANOID, 1, 9, 7, 0, 6, (G_GENO | 2),
+***************
+*** 414,419 ****
+  	  2, 20, 0, MS_SILENT, MZ_MEDIUM,
+  	  M1_AMORPHOUS | M1_NOEYES | M1_NOLIMBS | M1_STON_RES | M1_ACID,
+  	  M2_HOSTILE | M2_OMNIVORE, C(BROWN) },
+  /*      kobolds         */
+  	{ "kobold", S_KOBOLD,  0, 6, 7, 0, -2, (G_GENO | 1),
+  	  { { AT_WEAP, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 590,601 ----
+  	  2, 20, 0, MS_SILENT, MZ_MEDIUM,
+  	  M1_AMORPHOUS | M1_NOEYES | M1_NOLIMBS | M1_STON_RES | M1_ACID,
+  	  M2_HOSTILE | M2_OMNIVORE, C(BROWN) },
++ 	{ "The Jelly That Ate Cleveland", S_JELLY, 11, 3, 8, 20, 0, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_ENGL, AD_ACID, 4, 6 }, { AT_NONE, AD_ACID, 0, 6 },
++ 	    NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  2, 20, 0, MS_SILENT, MZ_MEDIUM,
++ 	  M1_NOPOLY | M1_AMORPHOUS | M1_NOEYES | M1_NOLIMBS | M1_STON_RES | M1_ACID,
++ 	  M2_HOSTILE | M2_PRINCE | M2_OMNIVORE | M2_PNAME, C(HI_LORD) },
+  /*      kobolds         */
+  	{ "kobold", S_KOBOLD,  0, 6, 7, 0, -2, (G_GENO | 1),
+  	  { { AT_WEAP, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 490,495 ****
+  	  { { AT_CLAW, AD_SITM, 0, 0 }, { AT_CLAW, AD_SEDU, 0, 0 },
+  	    NO_ATTK, NO_ATTK, NO_ATTK }, 30, 300, 0, MS_SEDUCE, MZ_HUMAN,
+  	  M1_HUMANOID | M1_TPORT | M1_COLLECT, M2_HOSTILE | M2_FEM, C(BROWN) },
+  /*      orcs    */
+  	{ "goblin", S_ORC,  0, 6, 6, 0, -3, (G_GENO | 2),
+  	  { { AT_WEAP, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 695,705 ----
+  	  { { AT_CLAW, AD_SITM, 0, 0 }, { AT_CLAW, AD_SEDU, 0, 0 },
+  	    NO_ATTK, NO_ATTK, NO_ATTK }, 30, 300, 0, MS_SEDUCE, MZ_HUMAN,
+  	  M1_HUMANOID | M1_TPORT | M1_COLLECT, M2_HOSTILE | M2_FEM, C(BROWN) },
++ 	{ "Aphrodite", S_NYMPH, 9, 15, 9, 20, 0, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_CLAW, AD_SITM, 0, 0 }, { AT_CLAW, AD_SEDU, 0, 0 },
++ 	    { AT_MAGC, AD_CLRC, 0, 0 }, NO_ATTK, NO_ATTK }, 30, 300, 0, 
++ 	    MS_SEDUCE, MZ_HUMAN, M1_HUMANOID | M1_TPORT | M1_COLLECT | M1_NOPOLY, 
++ 	    M2_HOSTILE | M2_FEM | M2_PNAME, C(HI_LORD) },
+  /*      orcs    */
+  	{ "goblin", S_ORC,  0, 6, 6, 0, -3, (G_GENO | 2),
+  	  { { AT_WEAP, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 541,546 ****
+  	  35, 350, 0, MS_ORC, MZ_HUMAN,
+  	  M1_HUMANOID | M1_GREEDY | M1_JEWELS | M1_COLLECT,
+  	  M2_ORC | M2_HOSTILE | M2_STRONG, C(HI_LORD) },
+  /*       piercers       */
+  	{ "rock piercer", S_PIERCER, 3, 1, 3, 0, 0, (G_GENO | 2),
+  	  { { AT_BITE, AD_PHYS, 2, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 759,771 ----
+  	  35, 350, 0, MS_ORC, MZ_HUMAN,
+  	  M1_HUMANOID | M1_GREEDY | M1_JEWELS | M1_COLLECT,
+  	  M2_ORC | M2_HOSTILE | M2_STRONG, C(HI_LORD) },
++ 	{ "Grund the Orc King", S_ORC, 9, 5, 4, 0, -5, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_WEAP, AD_PHYS, 2, 8 }, { AT_WEAP, AD_PHYS, 2, 8 },
++ 	    NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  35, 350, 0, MS_ORC, MZ_HUMAN,
++ 	  M1_HUMANOID | M1_GREEDY | M1_JEWELS | M1_COLLECT | M1_NOPOLY,
++ 	  M2_ORC | M2_STALK | M2_PNAME | M2_HOSTILE | M2_STRONG, C(HI_LORD) },
++ 
+  /*       piercers       */
+  	{ "rock piercer", S_PIERCER, 3, 1, 3, 0, 0, (G_GENO | 2),
+  	  { { AT_BITE, AD_PHYS, 2, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 622,627 ****
+  	  { { AT_BITE, AD_PHYS, 1, 3 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  2, 20, 0, MS_SQEEK, MZ_TINY, M1_ANIMAL | M1_NOHANDS,
+  	  M2_HOSTILE | M2_CARNIVORE, C(BROWN) },
+  	{ "giant rat",  S_RODENT, 1, 10, 7, 0, 0, (G_GENO | G_SGROUP | 2),
+  	  { { AT_BITE, AD_PHYS, 1, 3 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  3, 30, 0, MS_SQEEK, MZ_TINY, M1_ANIMAL | M1_NOHANDS,
+--- 878,887 ----
+  	  { { AT_BITE, AD_PHYS, 1, 3 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  2, 20, 0, MS_SQEEK, MZ_TINY, M1_ANIMAL | M1_NOHANDS,
+  	  M2_HOSTILE | M2_CARNIVORE, C(BROWN) },
++ 	{ "black rat",  S_RODENT, 1, 12, 7, 0, 0, (G_GENO | G_LGROUP | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 3 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  2, 20, 0, MS_SQEEK, MZ_TINY, M1_ANIMAL | M1_NOHANDS,
++ 	  M2_HOSTILE | M2_CARNIVORE, C(BLACK) },
+  	{ "giant rat",  S_RODENT, 1, 10, 7, 0, 0, (G_GENO | G_SGROUP | 2),
+  	  { { AT_BITE, AD_PHYS, 1, 3 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  3, 30, 0, MS_SQEEK, MZ_TINY, M1_ANIMAL | M1_NOHANDS,
+***************
+*** 639,644 ****
+  	  3, 30, 0, MS_SILENT, MZ_SMALL,
+  	  M1_TUNNEL | M1_ANIMAL | M1_NOHANDS | M1_GREEDY | M1_JEWELS |
+  	  M1_COLLECT, M2_HOSTILE | M2_METALLIVORE, C(GRAY) },
+  /*      spiders and scorpions   */
+  	{ "cave spider", S_SPIDER, 1, 12, 3, 0, 0, (G_GENO | G_SGROUP | 2),
+  	  { { AT_BITE, AD_PHYS, 1, 2 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 899,908 ----
+  	  3, 30, 0, MS_SILENT, MZ_SMALL,
+  	  M1_TUNNEL | M1_ANIMAL | M1_NOHANDS | M1_GREEDY | M1_JEWELS |
+  	  M1_COLLECT, M2_HOSTILE | M2_METALLIVORE, C(GRAY) },
++ 	{ "hellrat",  S_RODENT, 7, 10, 7, 0, 0, (G_GENO | G_SGROUP | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 12 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  3, 30, 0, MS_SQEEK, MZ_TINY, M1_ANIMAL | M1_NOHANDS | M1_FIRE_RES,
++ 	  M2_HOSTILE | M2_CARNIVORE, C(RED) },
+  /*      spiders and scorpions   */
+  	{ "cave spider", S_SPIDER, 1, 12, 3, 0, 0, (G_GENO | G_SGROUP | 2),
+  	  { { AT_BITE, AD_PHYS, 1, 2 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 661,666 ****
+  	  10, 100, 0, MS_SILENT, MZ_LARGE,
+  	  M1_ANIMAL | M1_NOHANDS | M1_POIS | M1_POIS_RES,
+  	  M2_HOSTILE | M2_STRONG | M2_CARNIVORE | M2_EGGS, C(MAGENTA) },
+  /*      trappers, lurkers, &c.  */
+  	{ "lurker above", S_TRAPPER, 10, 3, 3, 0, 0, (G_GENO | 2),
+  	  { { AT_ENGL, AD_DGST, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 930,947 ----
+  	  10, 100, 0, MS_SILENT, MZ_LARGE,
+  	  M1_ANIMAL | M1_NOHANDS | M1_POIS | M1_POIS_RES,
+  	  M2_HOSTILE | M2_STRONG | M2_CARNIVORE | M2_EGGS, C(MAGENTA) },
++ 	{ "giant scorpion", S_SPIDER, 8, 15, 3, 0, 0, (G_GENO | 2),
++ 	  { { AT_CLAW, AD_PHYS, 1, 2 }, { AT_CLAW, AD_PHYS, 1, 2 },
++ 	    { AT_STNG, AD_DRST, 1, 8 }, NO_ATTK, NO_ATTK },
++ 	  10, 100, 0, MS_SILENT, MZ_LARGE,
++ 	  M1_CONCEAL | M1_ANIMAL | M1_NOHANDS | M1_POIS,
++ 	  M2_HOSTILE | M2_CARNIVORE | M2_EGGS, C(ORANGE_COLORED) },
++ 	{ "Girtab", S_SPIDER, 15, 15, 3, 0, 0, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_CLAW, AD_PHYS, 1, 4 }, { AT_CLAW, AD_PHYS, 1, 4 },
++ 	    { AT_STNG, AD_DRST, 1, 12 }, NO_ATTK, NO_ATTK },
++ 	  10, 100, 0, MS_SILENT, MZ_HUGE,
++ 	  M1_CONCEAL | M1_ANIMAL | M1_NOHANDS | M1_POIS | M1_NOPOLY,
++ 	  M2_HOSTILE | M2_CARNIVORE | M2_EGGS | M2_PNAME, C(ORANGE_COLORED) },
+  /*      trappers, lurkers, &c.  */
+  	{ "lurker above", S_TRAPPER, 10, 3, 3, 0, 0, (G_GENO | 2),
+  	  { { AT_ENGL, AD_DGST, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 734,739 ****
+  	  M1_FLY | M1_NOEYES | M1_NOLIMBS | M1_POIS_RES | M1_FIRE_RES,
+  	  M2_HOSTILE, C(YELLOW) },
+  /*      worms   */
+  #ifdef WORM
+  	{ "baby long worm", S_WORM, 8, 3, 5, 0, 0, G_GENO,
+  	  { { AT_BITE, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 1026,1051 ----
+  	  M1_FLY | M1_NOEYES | M1_NOLIMBS | M1_POIS_RES | M1_FIRE_RES,
+  	  M2_HOSTILE, C(YELLOW) },
+  /*      worms   */
++ 	{ "maggot", S_WORM, 0, 12, 3, 0, 0, (G_GENO | G_SGROUP | 2),
++ 	  { { AT_BITE, AD_PHYS, 1, 2 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 50, 0, MS_SILENT, MZ_TINY,
++ 	  M1_CONCEAL | M1_ANIMAL | M1_NOHANDS | M1_POIS,
++ 	  M2_HOSTILE | M2_CARNIVORE | M2_EGGS, C(WHITE) },
++ 	{ "rot worm", S_WORM, 1, 12, 3, 0, 0, (G_GENO | G_SGROUP | 2),
++ 	  { { AT_BITE, AD_PHYS, 1, 2 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 50, 0, MS_SILENT, MZ_TINY,
++ 	  M1_CONCEAL | M1_ANIMAL | M1_NOHANDS | M1_POIS,
++ 	  M2_HOSTILE | M2_CARNIVORE | M2_EGGS, C(GRAY) },
++ 	{ "acid worm", S_WORM, 2, 12, 3, 0, 0, (G_GENO | G_LGROUP | 2),
++ 	  { { AT_BITE, AD_PHYS, 1, 2 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 50, 0, MS_SILENT, MZ_TINY,
++ 	  M1_CONCEAL | M1_ANIMAL | M1_NOHANDS | M1_ACID,
++ 	  M2_HOSTILE | M2_CARNIVORE | M2_EGGS, C(GREEN) },
++ 	{ "tunnel worm", S_WORM, 4, 12, 3, 0, 0, (G_GENO | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 2 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 50, 0, MS_SILENT, MZ_TINY,
++ 	  M1_TUNNEL | M1_ANIMAL | M1_NOHANDS | M1_THICK_HIDE,
++ 	  M2_HOSTILE | M2_CARNIVORE | M2_EGGS, C(RED) },
+  #ifdef WORM
+  	{ "baby long worm", S_WORM, 8, 3, 5, 0, 0, G_GENO,
+  	  { { AT_BITE, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 805,819 ****
+  	    { AT_HUGS, AD_PHYS, 1, 8 }, NO_ATTK, NO_ATTK },
+  	  55, 550, 0, MS_GROWL, MZ_LARGE, M1_ANIMAL | M1_HUMANOID,
+  	  M2_HOSTILE | M2_STRONG | M2_CARNIVORE, C(BROWN) },
+  /*      Bats    */
+  	{ "bat", S_BAT, 0, 22, 8, 0, 0, (G_GENO | G_SGROUP | 1),
+  	  { { AT_BITE, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  2, 20, 0, MS_SQEEK, MZ_TINY, M1_FLY | M1_ANIMAL | M1_NOHANDS,
+  	  M2_WANDER | M2_CARNIVORE, C(BROWN) },
+  	{ "giant bat", S_BAT, 2, 22, 7, 0, 0, (G_GENO | 2),
+  	  { { AT_BITE, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  3, 30, 0, MS_SQEEK, MZ_MEDIUM, M1_FLY | M1_ANIMAL | M1_NOHANDS,
+  	  M2_WANDER | M2_HOSTILE | M2_CARNIVORE, C(RED) },
+  	{ "vampire bat", S_BAT, 5, 20, 6, 0, 0, (G_GENO | 2),
+  	  { { AT_BITE, AD_PHYS, 1, 6 }, { AT_BITE, AD_DRST, 0, 0 },
+  	    NO_ATTK, NO_ATTK, NO_ATTK },
+--- 1132,1164 ----
+  	    { AT_HUGS, AD_PHYS, 1, 8 }, NO_ATTK, NO_ATTK },
+  	  55, 550, 0, MS_GROWL, MZ_LARGE, M1_ANIMAL | M1_HUMANOID,
+  	  M2_HOSTILE | M2_STRONG | M2_CARNIVORE, C(BROWN) },
++ 	{ "cave ape", S_APE, 8, 12, 6, 0, 0, (G_GENO | G_SGROUP | 1),
++ 	  { { AT_CLAW, AD_PHYS, 1, 4 }, { AT_CLAW, AD_PHYS, 1, 4 },
++ 	    { AT_HUGS, AD_PHYS, 1, 8 }, NO_ATTK, NO_ATTK },
++ 	  55, 550, 0, MS_GROWL, MZ_LARGE, M1_ANIMAL | M1_HUMANOID,
++ 	  M2_HOSTILE | M2_STRONG | M2_CARNIVORE, C(GRAY) },
++ 	{ "Bigfoot", S_APE, 13, 12, 6, 0, 0, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_CLAW, AD_PHYS, 1, 4 }, { AT_CLAW, AD_PHYS, 1, 4 },
++ 	    { AT_HUGS, AD_PHYS, 1, 8 }, NO_ATTK, NO_ATTK },
++ 	  55, 550, 0, MS_GROWL, MZ_LARGE, M1_ANIMAL | M1_HUMANOID | M1_NOPOLY,
++ 	  M2_STALK | M2_PRINCE | M2_PNAME | M2_HOSTILE | M2_STRONG | M2_CARNIVORE, C(BROWN) },
+  /*      Bats    */
+  	{ "bat", S_BAT, 0, 22, 8, 0, 0, (G_GENO | G_SGROUP | 1),
+  	  { { AT_BITE, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  2, 20, 0, MS_SQEEK, MZ_TINY, M1_FLY | M1_ANIMAL | M1_NOHANDS,
+  	  M2_WANDER | M2_CARNIVORE, C(BROWN) },
++ 	{ "rhumbat", S_BAT, 1, 25, 6, 0, 0, (G_GENO | G_SGROUP | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  2, 20, 0, MS_SQEEK, MZ_TINY, M1_FLY | M1_ANIMAL | M1_NOHANDS,
++ 	  M2_WANDER | M2_CARNIVORE, C(YELLOW) },
+  	{ "giant bat", S_BAT, 2, 22, 7, 0, 0, (G_GENO | 2),
+  	  { { AT_BITE, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+  	  3, 30, 0, MS_SQEEK, MZ_MEDIUM, M1_FLY | M1_ANIMAL | M1_NOHANDS,
+  	  M2_WANDER | M2_HOSTILE | M2_CARNIVORE, C(RED) },
++ 	{ "mongbat", S_BAT, 3, 25, 6, 0, 0, (G_GENO | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 10 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  2, 20, 0, MS_SQEEK, MZ_TINY, M1_FLY | M1_ANIMAL | M1_NOHANDS,
++ 	  M2_HOSTILE | M2_CARNIVORE, C(ORANGE_COLORED) },
+  	{ "vampire bat", S_BAT, 5, 20, 6, 0, 0, (G_GENO | 2),
+  	  { { AT_BITE, AD_PHYS, 1, 6 }, { AT_BITE, AD_DRST, 0, 0 },
+  	    NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 820,825 ****
+  	  3, 20, 0, MS_SQEEK, MZ_TINY,
+  	  M1_FLY | M1_ANIMAL | M1_NOHANDS | M1_POIS | M1_REGEN,
+  	  M2_UNDEAD | M2_HOSTILE, C(BLACK) },
+  /*      Centaurs        */
+  	{ "plains centaur", S_CENTAUR, 4, 18, 4, 0, 0, (G_GENO | 1),
+  	  { { AT_WEAP, AD_PHYS, 1, 6 }, { AT_KICK, AD_PHYS, 1, 6 },
+--- 1165,1175 ----
+  	  3, 20, 0, MS_SQEEK, MZ_TINY,
+  	  M1_FLY | M1_ANIMAL | M1_NOHANDS | M1_POIS | M1_REGEN,
+  	  M2_UNDEAD | M2_HOSTILE, C(BLACK) },
++ 	{ "hellbat", S_BAT, 8, 36, 6, 0, 0, (G_GENO | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 12 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  2, 20, 0, MS_SQEEK, MZ_TINY, M1_FLY | M1_ANIMAL | M1_NOHANDS | M1_FIRE_RES,
++ 	  M2_HOSTILE | M2_WANDER | M2_CARNIVORE, C(RED) },
++ 
+  /*      Centaurs        */
+  	{ "plains centaur", S_CENTAUR, 4, 18, 4, 0, 0, (G_GENO | 1),
+  	  { { AT_WEAP, AD_PHYS, 1, 6 }, { AT_KICK, AD_PHYS, 1, 6 },
+***************
+*** 836,841 ****
+  	    { AT_KICK, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK },
+  	  55, 500, 0, MS_SILENT, MZ_LARGE, M1_COLLECT | M1_GREEDY, M2_STRONG,
+  	  C(CYAN) },
+  /*      Dragons         */
+  	{ "baby gray dragon", S_DRAGON, 12, 9, 2, 10, 0, G_GENO,
+  	  { { AT_BITE, AD_PHYS, 2, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 1186,1207 ----
+  	    { AT_KICK, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK },
+  	  55, 500, 0, MS_SILENT, MZ_LARGE, M1_COLLECT | M1_GREEDY, M2_STRONG,
+  	  C(CYAN) },
++ 	{ "centaur shaman", S_CENTAUR, 6, 20, 2, 10, -3, (G_GENO | 1),
++ 	  { { AT_MAGC, AD_SPEL, 1, 10 }, { AT_KICK, AD_PHYS, 1, 6 },
++ 	    { AT_KICK, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK },
++ 	  55, 500, 0, MS_SILENT, MZ_LARGE, M1_COLLECT | M1_GREEDY, M2_STRONG,
++ 	  C(BLUE) },
++ 	{ "centaur prince", S_CENTAUR, 8, 20, 2, 10, -3, (G_GENO | 1),
++ 	  { { AT_WEAP, AD_PHYS, 1, 10 }, { AT_KICK, AD_PHYS, 1, 6 },
++ 	    { AT_KICK, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK },
++ 	  55, 500, 0, MS_SILENT, MZ_LARGE, M1_COLLECT | M1_GREEDY, 
++ 	  M2_STRONG | M2_PRINCE, C(MAGENTA) },
++ 	{ "Silva the Centaur King", S_CENTAUR, 13, 20, 2, 10, -3, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_WEAP, AD_PHYS, 1, 12 }, { AT_KICK, AD_PHYS, 1, 6 },
++ 	    { AT_KICK, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK },
++ 	  55, 500, 0, MS_SILENT, MZ_LARGE, M1_COLLECT | M1_GREEDY | M1_NOPOLY, 
++ 	  M2_STRONG | M2_STALK | M2_PNAME | M2_PRINCE, C(HI_LORD) },
++ 
+  /*      Dragons         */
+  	{ "baby gray dragon", S_DRAGON, 12, 9, 2, 10, 0, G_GENO,
+  	  { { AT_BITE, AD_PHYS, 2, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 945,950 ****
+  	  M1_MAGIC | M1_SEE_INVIS | M1_ACID | M1_STON_RES,
+  	  M2_HOSTILE | M2_STRONG | M2_NASTY | M2_CARNIVORE | M2_EGGS,
+  	  C(YELLOW) },
+  /*      Elementals      */
+  	{ "air elemental", S_ELEMENTAL, 8, 36, 2, 30, 0, (G_NOCORPSE | 1),
+  	  { { AT_ENGL, AD_PHYS, 2, 10 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 1311,1333 ----
+  	  M1_MAGIC | M1_SEE_INVIS | M1_ACID | M1_STON_RES,
+  	  M2_HOSTILE | M2_STRONG | M2_NASTY | M2_CARNIVORE | M2_EGGS,
+  	  C(YELLOW) },
++ 	{ "undead dragon", S_DRAGON, 13, 9, -1, 20, -6, (G_GENO | 1),
++ 	  { { AT_BREA, AD_DISN, 4, 10 }, { AT_BITE, AD_PHYS, 3, 8 },
++ 	    { AT_CLAW, AD_PHYS, 1, 4 }, { AT_CLAW, AD_PHYS, 1, 4 }, NO_ATTK },
++ 	  150, 1500, 0, MS_ROAR, MZ_GIGANTIC,
++ 	  M1_FLY | M1_THICK_HIDE | M1_NOHANDS | M1_GREEDY | M1_JEWELS |
++ 	  M1_MAGIC | M1_SEE_INVIS,
++ 	  M2_HOSTILE | M2_STRONG | M2_NASTY | M2_CARNIVORE | M2_UNDEAD,
++ 	  C(BLACK) },
++ 	{ "Tiamat", S_DRAGON, 90, 9, -1, 20, -4, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_BREA, AD_FIRE, 6, 6 }, { AT_BREA, AD_DRST, 4, 6 },
++ 	    { AT_BREA, AD_ELEC, 4, 6 }, { AT_BREA, AD_COLD, 4, 6 }, 
++ 	    { AT_BITE, AD_PHYS, 6, 10 } },
++ 	  150, 1500, 0, MS_ROAR, MZ_GIGANTIC,
++ 	  M1_FLY | M1_THICK_HIDE | M1_NOHANDS | M1_GREEDY | M1_JEWELS |
++ 	  M1_MAGIC | M1_SEE_INVIS | M1_FIRE_RES | M1_NOPOLY,
++ 	  M2_HOSTILE | M2_STRONG | M2_NASTY | M2_CARNIVORE | 
++ 	  M2_PNAME | M2_STALK | M2_EGGS, C(HI_LORD) },
+  /*      Elementals      */
+  	{ "air elemental", S_ELEMENTAL, 8, 36, 2, 30, 0, (G_NOCORPSE | 1),
+  	  { { AT_ENGL, AD_PHYS, 2, 10 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 1185,1190 ****
+  	    NO_ATTK, NO_ATTK, NO_ATTK }, 75, 750, 0, MS_SILENT, MZ_HUGE,
+  	  M1_HUMANOID | M1_POIS | M1_JEWELS,
+  	  M2_UNDEAD | M2_HOSTILE | M2_GIANT | M2_STRONG, C(CYAN) },
+  /*      Nagas   */
+  	{ "red naga hatchling", S_NAGA, 3, 10, 6, 0, 0, G_GENO,
+  	  { { AT_BITE, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 1602,1612 ----
+  	    NO_ATTK, NO_ATTK, NO_ATTK }, 75, 750, 0, MS_SILENT, MZ_HUGE,
+  	  M1_HUMANOID | M1_POIS | M1_JEWELS,
+  	  M2_UNDEAD | M2_HOSTILE | M2_GIANT | M2_STRONG, C(CYAN) },
++ 	{ "The Mummy", S_MUMMY, 13, 14, 3, 30, -7, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_CLAW, AD_PHYS, 3, 4 }, { AT_CLAW, AD_PHYS, 3, 4 },
++ 	    NO_ATTK, NO_ATTK, NO_ATTK }, 75, 750, 0, MS_SILENT, MZ_HUMAN,
++ 	  M1_HUMANOID | M1_POIS | M1_NOPOLY,
++ 	  M2_UNDEAD | M2_HOSTILE | M2_PNAME | M2_STRONG, C(WHITE) },
+  /*      Nagas   */
+  	{ "red naga hatchling", S_NAGA, 3, 10, 6, 0, 0, G_GENO,
+  	  { { AT_BITE, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 1293,1298 ****
+  	  50, 500, 0, MS_SILENT, MZ_MEDIUM,
+  	  M1_SWIM | M1_ANIMAL | M1_NOHANDS, M2_HOSTILE | M2_METALLIVORE,
+  	  C(BROWN) },
+  /*      Snakes  */
+  	{ "garter snake", S_SNAKE, 1, 8, 8, 0, 0, (G_LGROUP | G_GENO | 1),
+  	  { { AT_BITE, AD_PHYS, 1, 2 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 1735,1746 ----
+  	  50, 500, 0, MS_SILENT, MZ_MEDIUM,
+  	  M1_SWIM | M1_ANIMAL | M1_NOHANDS, M2_HOSTILE | M2_METALLIVORE,
+  	  C(BROWN) },
++ 	{ "giant rust monster", S_RUSTMONST, 9, 18, 2, 0, 0, (G_GENO | 1),
++ 	  { { AT_TUCH, AD_RUST, 0, 0 }, { AT_TUCH, AD_RUST, 0, 0 },
++ 	    { AT_NONE, AD_RUST, 0, 0 }, NO_ATTK, NO_ATTK },
++ 	  50, 750, 0, MS_SILENT, MZ_MEDIUM,
++ 	  M1_SWIM | M1_ANIMAL | M1_NOHANDS, M2_HOSTILE | M2_METALLIVORE,
++ 	  C(BROWN) },
+  /*      Snakes  */
+  	{ "garter snake", S_SNAKE, 1, 8, 8, 0, 0, (G_LGROUP | G_GENO | 1),
+  	  { { AT_BITE, AD_PHYS, 1, 2 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 1335,1340 ****
+  	    NO_ATTK, NO_ATTK, NO_ATTK }, 15, 100, 0, MS_HISS, MZ_LARGE,
+  	  M1_SWIM | M1_NOLIMBS | M1_ANIMAL | M1_SLITHY | M1_POIS | M1_POIS_RES,
+  	  M2_HOSTILE | M2_STRONG | M2_CARNIVORE | M2_EGGS, C(MAGENTA) },
+  /*      Trolls  */
+  	{ "troll", S_TROLL, 7, 12, 4, 0, -3, (G_GENO | 2),
+  	  { { AT_CLAW, AD_PHYS, 4, 2 }, { AT_CLAW, AD_PHYS, 4, 2 },
+--- 1789,1800 ----
+  	    NO_ATTK, NO_ATTK, NO_ATTK }, 15, 100, 0, MS_HISS, MZ_LARGE,
+  	  M1_SWIM | M1_NOLIMBS | M1_ANIMAL | M1_SLITHY | M1_POIS | M1_POIS_RES,
+  	  M2_HOSTILE | M2_STRONG | M2_CARNIVORE | M2_EGGS, C(MAGENTA) },
++ 	{ "asphinx", S_SNAKE, 5, 20, 2, 0, 0, (G_GENO | 1),
++ 	  { { AT_BITE, AD_STON, 1, 4 }, { AT_BITE, AD_DRST, 1, 4 },
++ 	    NO_ATTK, NO_ATTK, NO_ATTK }, 5, 60, 0, MS_HISS, MZ_MEDIUM,
++ 	  M1_SWIM | M1_CONCEAL | M1_NOLIMBS | M1_ANIMAL | M1_SLITHY |
++ 	  M1_POIS | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_CARNIVORE | M2_EGGS, C(BLACK) },
+  /*      Trolls  */
+  	{ "troll", S_TROLL, 7, 12, 4, 0, -3, (G_GENO | 2),
+  	  { { AT_CLAW, AD_PHYS, 4, 2 }, { AT_CLAW, AD_PHYS, 4, 2 },
+***************
+*** 1379,1384 ****
+  	    { AT_BITE, AD_PHYS, 2, 5 }, { AT_GAZE, AD_CONF, 0, 0 }, NO_ATTK },
+  	  50, 500, 0, MS_SILENT, MZ_LARGE,
+  	  M1_TUNNEL, M2_STRONG | M2_CARNIVORE, C(BROWN) },
+  /*      Vampires        */
+  	{ "vampire", S_VAMPIRE, 10, 12, 1, 25, -8, (G_GENO | 1),
+  	  { { AT_CLAW, AD_PHYS, 1, 6 }, { AT_BITE, AD_DRLI, 1, 6 },
+--- 1845,1862 ----
+  	    { AT_BITE, AD_PHYS, 2, 5 }, { AT_GAZE, AD_CONF, 0, 0 }, NO_ATTK },
+  	  50, 500, 0, MS_SILENT, MZ_LARGE,
+  	  M1_TUNNEL, M2_STRONG | M2_CARNIVORE, C(BROWN) },
++ 	{ "hulk", S_UMBER, 13, 6, 2, 25, 0, (G_GENO | 2),
++ 	  { { AT_CLAW, AD_PHYS, 3, 4 }, { AT_CLAW, AD_PHYS, 3, 4 },
++ 	    { AT_BITE, AD_PHYS, 2, 5 }, { AT_GAZE, AD_CONF, 0, 0 }, NO_ATTK },
++ 	  50, 500, 0, MS_SILENT, MZ_LARGE,
++ 	  M1_GREEDY, M2_STRONG | M2_CARNIVORE | M2_HOSTILE, C(GREEN) },
++ 	{ "the Incredible Hulk", S_UMBER, 16, 6, 2, 25, 0, (G_NOCORPSE | G_UNIQ | 1),
++ 	  { { AT_CLAW, AD_PHYS, 3, 4 }, { AT_CLAW, AD_PHYS, 3, 4 },
++ 	    { AT_BITE, AD_PHYS, 2, 5 }, NO_ATTK, NO_ATTK },
++ 	  50, 500, 0, MS_SILENT, MZ_LARGE,
++ 	  M1_REGEN | M1_NOPOLY, M2_PNAME | M2_STALK | M2_STRONG | 
++ 	  M2_CARNIVORE | M2_HOSTILE, C(GREEN) },
++ 
+  /*      Vampires        */
+  	{ "vampire", S_VAMPIRE, 10, 12, 1, 25, -8, (G_GENO | 1),
+  	  { { AT_CLAW, AD_PHYS, 1, 6 }, { AT_BITE, AD_DRLI, 1, 6 },
+***************
+*** 1429,1434 ****
+  	    { AT_BITE, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK },
+  	  70, 700, 0, MS_GROWL, MZ_LARGE, M1_ANIMAL | M1_HUMANOID | M1_COLD_RES,
+  	  M2_HOSTILE | M2_STRONG | M2_CARNIVORE, C(WHITE) },
+  /*      Zombies         */
+  	{ "kobold zombie", S_ZOMBIE, 0, 6, 10, 0, -2, (G_GENO | G_NOCORPSE | 1),
+  	  { { AT_CLAW, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 1907,1917 ----
+  	    { AT_BITE, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK },
+  	  70, 700, 0, MS_GROWL, MZ_LARGE, M1_ANIMAL | M1_HUMANOID | M1_COLD_RES,
+  	  M2_HOSTILE | M2_STRONG | M2_CARNIVORE, C(WHITE) },
++ 	{ "Yuval", S_YETI, 5, 15, 6, 0, 0, (G_NOGEN | G_NOCORPSE | G_UNIQ),
++ 	  { { AT_WEAP, AD_PHYS, 1, 12 }, { AT_MAGC, AD_CLRC, 0, 0 },
++ 	    { AT_BITE, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK },
++ 	  70, 700, 0, MS_GROWL, MZ_LARGE, M1_NOPOLY | M1_ANIMAL | M1_HUMANOID | M1_COLD_RES,
++ 	  M2_PRINCE | M2_PNAME | M2_HOSTILE | M2_STRONG | M2_CARNIVORE, C(HI_LORD) },
+  /*      Zombies         */
+  	{ "kobold zombie", S_ZOMBIE, 0, 6, 10, 0, -2, (G_GENO | G_NOCORPSE | 1),
+  	  { { AT_CLAW, AD_PHYS, 1, 4 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+***************
+*** 1908,1913 ****
+  	  40, 400, 0, MS_DJINNI, MZ_HUMAN,
+  	  M1_NOPOLY | M1_HUMANOID | M1_FLY | M1_POIS | M1_COLLECT, M2_STALK,
+  	  C(YELLOW) },
+  /*      sea monsters            */
+  	{ "giant eel", S_EEL, 5, 9, -1, 0, 0, (G_GENO | G_NOGEN),
+  	  { { AT_BITE, AD_PHYS, 3, 6 }, { AT_TUCH, AD_WRAP, 0, 0 },
+--- 2461,2482 ----
+  	  40, 400, 0, MS_DJINNI, MZ_HUMAN,
+  	  M1_NOPOLY | M1_HUMANOID | M1_FLY | M1_POIS | M1_COLLECT, M2_STALK,
+  	  C(YELLOW) },
++ 	{ "efreeti", S_DEMON, 7, 12, 4, 30, 0, (G_NOGEN | G_NOCORPSE),
++ 	  { { AT_WEAP, AD_PHYS, 2, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  40, 400, 0, MS_DJINNI, MZ_HUMAN,
++ 	  M1_NOPOLY | M1_HUMANOID | M1_FLY | M1_POIS | M1_COLLECT | M1_FIRE_RES, 
++ 	  M2_STALK, C(RED) },
++ 	{ "marid", S_DEMON, 7, 12, 4, 30, 0, (G_NOGEN | G_NOCORPSE),
++ 	  { { AT_WEAP, AD_PHYS, 2, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  40, 400, 0, MS_DJINNI, MZ_HUMAN,
++ 	  M1_NOPOLY | M1_HUMANOID | M1_FLY | M1_POIS | M1_COLLECT, M2_STALK,
++ 	  C(BLUE) },
++ 	{ "dao", S_DEMON, 7, 12, 4, 30, 0, (G_NOGEN | G_NOCORPSE),
++ 	  { { AT_WEAP, AD_PHYS, 2, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  40, 400, 0, MS_DJINNI, MZ_HUMAN,
++ 	  M1_NOPOLY | M1_HUMANOID | M1_WALLWALK | M1_POIS | M1_COLLECT, 
++ 	  M2_STALK, C(BROWN) },
++ 
+  /*      sea monsters            */
+  	{ "giant eel", S_EEL, 5, 9, -1, 0, 0, (G_GENO | G_NOGEN),
+  	  { { AT_BITE, AD_PHYS, 3, 6 }, { AT_TUCH, AD_WRAP, 0, 0 },
+***************
+*** 2086,2092 ****
+  	  45, 400, 0, MS_HUMANOID, MZ_HUMAN,
+  	  M1_NOPOLY | M1_HUMANOID | M1_COLLECT | M1_MAGIC,
+  	  M2_HUMAN | M2_STRONG, C(HI_DOMESTIC) },
+  
+  /*      ARRAY TERMINATOR        */
+  	{ "", 0, 0, 0, 0, 0, 0, 0,
+  	  { NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
+--- 2711,2773 ----
+  	  45, 400, 0, MS_HUMANOID, MZ_HUMAN,
+  	  M1_NOPOLY | M1_HUMANOID | M1_COLLECT | M1_MAGIC,
+  	  M2_HUMAN | M2_STRONG, C(HI_DOMESTIC) },
++ 	{ "zookeeper", S_HUMAN, 1, 10, 10, 1, 3, G_NOGEN,
++ 	  { {AT_WEAP, AD_PHYS, 1, 6}, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  45, 400, 0, MS_HUMANOID, MZ_HUMAN,
++ 	  M1_NOPOLY | M1_HUMANOID | M1_COLLECT | M1_TUNNEL | M1_NEEDPICK,
++ 	  M2_HUMAN | M2_STRONG, C(HI_DOMESTIC) },
+  
++ /*      animated food */
++ 	{ "killer food ration", S_BADLUNCH, 1, 0, 6, 0, 0, 
++ 	  (G_GENO | G_NOCORPSE | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 3 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 30, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_COLD_RES | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_OMNIVORE, C(GREEN) },
++ 	{ "killer tripe ration", S_BADLUNCH, 2, 1, 9, 0, 0, 
++ 	  (G_GENO | G_NOCORPSE | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 30, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_COLD_RES | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_OMNIVORE, C(BROWN) },
++ 	{ "killer tomato", S_BADLUNCH, 4, 9, 9, 0, 0, 
++ 	  (G_GENO | G_NOCORPSE | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 30, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_COLD_RES | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_OMNIVORE, C(RED) },
++ 	{ "ravenous cream pie", S_BADLUNCH, 7, 9, 9, 0, 0, 
++ 	  (G_GENO | G_NOCORPSE | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 30, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_COLD_RES | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_OMNIVORE, C(WHITE) },
++ 
++ /*      animated coins */
++ 	{ "pile of silver coins", S_BADCOINS, 3, 0, 6, 0, 0, (G_GENO | G_NOCORPSE | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 30, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_COLD_RES | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_OMNIVORE, C(BLACK) },
++ 	{ "gold mimic", S_BADCOINS, 4, 1, 9, 0, 0, 
++ 	  (G_GENO | G_NOCORPSE | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 6 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 30, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_COLD_RES | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_OMNIVORE, C(YELLOW) },
++ 	{ "pile of creeping gold coins", S_BADCOINS, 6, 9, 9, 0, 0, 
++ 	  (G_GENO | G_NOCORPSE | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 8 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 30, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_COLD_RES | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_OMNIVORE, C(YELLOW) },
++ 	{ "pile of killer gold coins", S_BADCOINS, 9, 15, 9, 0, 0, 
++ 	  (G_GENO | G_NOCORPSE | 1),
++ 	  { { AT_BITE, AD_PHYS, 1, 16 }, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },
++ 	  5, 30, 0, MS_SILENT, MZ_SMALL,
++ 	  M1_NOEYES | M1_NOLIMBS | M1_COLD_RES | M1_POIS_RES,
++ 	  M2_HOSTILE | M2_OMNIVORE, C(YELLOW) },
++ 
+  /*      ARRAY TERMINATOR        */
+  	{ "", 0, 0, 0, 0, 0, 0, 0,
+  	  { NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK, NO_ATTK },

@@ -1,0 +1,70 @@
+*** ../nh/src/objects.c	Mon May 14 09:58:18 1990
+--- src/objects.c	Fri Dec  4 01:27:22 1992
+***************
+*** 197,202 ****
+  #endif
+  WEAPON("athame",        NULL,           1, 1, 0,  0, 2,  4, 4, 3, METAL, HI_METAL),
+  WEAPON("scalpel",       NULL,           1, 1, 0,  0, 1,  4, 4, 3, METAL, HI_METAL),
+  WEAPON("knife",         NULL,           1, 1, 0, 25, 2,  4, 3, 3, METAL, HI_METAL),
+  WEAPON("axe",           NULL,           1, 0, 0, 50, 3,  8, 6, 4, METAL, HI_METAL),
+  #ifdef WORM
+--- 202,208 ----
+  #endif
+  WEAPON("athame",        NULL,           1, 1, 0,  0, 2,  4, 4, 3, METAL, HI_METAL),
+  WEAPON("scalpel",       NULL,           1, 1, 0,  0, 1,  4, 4, 3, METAL, HI_METAL),
++ WEAPON("sharpened pencil", NULL,        1, 1, 0,  0, 2,  4, 4, 3, WOOD, YELLOW),
+  WEAPON("knife",         NULL,           1, 1, 0, 25, 2,  4, 3, 3, METAL, HI_METAL),
+  WEAPON("axe",           NULL,           1, 0, 0, 50, 3,  8, 6, 4, METAL, HI_METAL),
+  #ifdef WORM
+***************
+*** 347,352 ****
+  	TOOL("large box",       NULL,   1, 0,  40, 40,  20, WOOD, HI_WOOD),
+  	TOOL("chest",           NULL,   1, 0,  35, 40,  20, WOOD, HI_WOOD),
+  	TOOL("sack",            "bag",  0, 0,  40,  3,  20, 0, HI_CLOTH),
+  	TOOL("bag of holding",  "bag",  0, 0,  20,  3, 100, 0, HI_CLOTH),
+  	TOOL("bag of tricks",   "bag",  0, 1,  20,  3, 100, 0, HI_CLOTH),
+  #ifndef MUSIC
+--- 356,362 ----
+  	TOOL("large box",       NULL,   1, 0,  40, 40,  20, WOOD, HI_WOOD),
+  	TOOL("chest",           NULL,   1, 0,  35, 40,  20, WOOD, HI_WOOD),
+  	TOOL("sack",            "bag",  0, 0,  40,  3,  20, 0, HI_CLOTH),
++ 	TOOL("ugly backpack","ugly backpack", 0, 0,   0,  3,  20, 0, MAGENTA),
+  	TOOL("bag of holding",  "bag",  0, 0,  20,  3, 100, 0, HI_CLOTH),
+  	TOOL("bag of tricks",   "bag",  0, 1,  20,  3, 100, 0, HI_CLOTH),
+  #ifndef MUSIC
+***************
+*** 476,481 ****
+  /*  'cope' is not a spelling mistake... leave it be */
+  ARMOR("mummy wrapping", NULL,
+  			1, 0, 0,             0, 0, 2,  2, 10, 2, 0, HI_CLOTH),
+  #ifdef TOLKIEN
+  ARMOR("elven cloak", "ornamental cope",
+  			0, 0, STEALTH,      12, 0, 2, 60,  9, 3, 0, HI_CLOTH),
+--- 486,495 ----
+  /*  'cope' is not a spelling mistake... leave it be */
+  ARMOR("mummy wrapping", NULL,
+  			1, 0, 0,             0, 0, 2,  2, 10, 2, 0, HI_CLOTH),
++ ARMOR("lab coat", "white coat",
++ 			0, 0, 0,             0, 0, 2, 40, 10, 3, 0, WHITE),
++ ARMOR("expensive suit", "expensive suit",
++ 			0, 0, 0,             0, 0, 2, 90, 10, 3, 0, BLACK),
+  #ifdef TOLKIEN
+  ARMOR("elven cloak", "ornamental cope",
+  			0, 0, STEALTH,      12, 0, 2, 60,  9, 3, 0, HI_CLOTH),
+***************
+*** 783,788 ****
+  
+  RING("adornment",       "wooden",       ADORNED,        100, 1, WOOD, HI_WOOD),
+  RING("gain strength",   "granite",      0,              150, 1, MINERAL, HI_MINERAL),
+  RING("increase damage", "coral",        0,              150, 1, MINERAL, RED|BRIGHT),
+  RING("protection",      "black onyx",   PROTECTION,     100, 1, MINERAL, BLACK),
+  RING("regeneration",    "moonstone",    REGENERATION,   200, 0, MINERAL, HI_MINERAL),
+--- 808,815 ----
+  
+  RING("adornment",       "wooden",       ADORNED,        100, 1, WOOD, HI_WOOD),
+  RING("gain strength",   "granite",      0,              150, 1, MINERAL, HI_MINERAL),
++ RING("gain intelligence", "ordinary",   0,              150, 1, MINERAL, HI_MINERAL),
++ RING("gain dexterity",  "garnet",       0,              150, 1, MINERAL, RED),
+  RING("increase damage", "coral",        0,              150, 1, MINERAL, RED|BRIGHT),
+  RING("protection",      "black onyx",   PROTECTION,     100, 1, MINERAL, BLACK),
+  RING("regeneration",    "moonstone",    REGENERATION,   200, 0, MINERAL, HI_MINERAL),

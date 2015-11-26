@@ -1,0 +1,64 @@
+*** ../nh/src/pray.c	Tue May 15 14:50:45 1990
+--- src/pray.c	Fri Dec  4 00:55:06 1992
+***************
+*** 23,30 ****
+  'A', /* Central American */     "Quetzalcotl", "Camaxtli", "Huhetotl",
+  'B', /* Celtic */               "Nuada", "Dagda", "Morrigan",
+  'C', /* Babylonian */           "Anu", "Ishtar", "Anshar",
+  'E', /* Elven */                "Solonor Thelandira",
+  				"Aerdrie Faenya", "Erevan Ilesere",
+  'H', /* Greek */                "Athena", "Hermes", "Poseidon",
+  'K', /* Celtic */               "Lugh", "Brigit", "Macannan Mac Lir",
+  #ifdef NAMED_ITEMS
+--- 23,33 ----
+  'A', /* Central American */     "Quetzalcotl", "Camaxtli", "Huhetotl",
+  'B', /* Celtic */               "Nuada", "Dagda", "Morrigan",
+  'C', /* Babylonian */           "Anu", "Ishtar", "Anshar",
++ 'D', /* Drunken */              "Apollo", "Dionysus", "Pan",
+  'E', /* Elven */                "Solonor Thelandira",
+  				"Aerdrie Faenya", "Erevan Ilesere",
++ 'F', /* Fire */                 "Prometheus", "Thor", "Arson",
++ 'G', /* Geek */                 "Jobs", "Wozniak", "Gates",
+  'H', /* Greek */                "Athena", "Hermes", "Poseidon",
+  'K', /* Celtic */               "Lugh", "Brigit", "Macannan Mac Lir",
+  #ifdef NAMED_ITEMS
+***************
+*** 31,36 ****
+  /* It'd look funny if someone got a sword to steal souls for Arioch but Arioch
+   * goes with the wrong character class...
+   */
+  'P', /* Hyborian */             "Mitra", "Crom", "Set",
+  #else
+  'P', /* Melnibonean */          "Donblas", "Grome", "Arioch",
+--- 34,43 ----
+  /* It'd look funny if someone got a sword to steal souls for Arioch but Arioch
+   * goes with the wrong character class...
+   */
++ 'L', /* Locksmiths */           "Athena", "Hermes", "Poseidon",
++ 'M', /* Music */                "Apollo", "Hermes", "Pan",
++ 'N', /* Japanese */             "Amaterasu Omikami", "Raiden", "Susanowo",
++ 'O',                            "Magnum", "Smith", "Wesson",
+  'P', /* Hyborian */             "Mitra", "Crom", "Set",
+  #else
+  'P', /* Melnibonean */          "Donblas", "Grome", "Arioch",
+***************
+*** 38,45 ****
+  'R', /* Nehwon */               "Votishal", "Death", "Rat God",
+  'S', /* Japanese */             "Amaterasu Omikami", "Raiden", "Susanowo",
+  'T', /* Chinese */              "Shan Lai Ching", "Chih Sung-tzu", "Huan Ti",
+  'V', /* Norse */                "Tyr", "Balder", "Loki",
+  'W', /* Egyptian */             "Ptah", "Thoth", "Anhur",
+  0,0,0,0
+  };
+  
+--- 45,54 ----
+  'R', /* Nehwon */               "Votishal", "Death", "Rat God",
+  'S', /* Japanese */             "Amaterasu Omikami", "Raiden", "Susanowo",
+  'T', /* Chinese */              "Shan Lai Ching", "Chih Sung-tzu", "Huan Ti",
++ 'U', /* Death */                "Osiris", "Pluto", "Orcus",
+  'V', /* Norse */                "Tyr", "Balder", "Loki",
+  'W', /* Egyptian */             "Ptah", "Thoth", "Anhur",
++ 'Z', /* Zoo */                  "Athena", "Hermes", "Poseidon",
+  0,0,0,0
+  };
+  
